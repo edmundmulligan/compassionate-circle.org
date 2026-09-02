@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events Calendar – Compassionate Circle</title>
+  <meta name="description" content="Browse upcoming events and sessions at Compassionate Circle." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header>
+  <nav class="nav-container">
+    <a class="nav-logo" href="index.html">&#9675; Compassionate Circle</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="booking.html">Book a Session</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1 class="section-title">Events Calendar</h1>
+
+  <div class="calendar-controls">
+    <button class="btn btn-outline" id="prev-month" style="border-color:var(--color-primary);color:var(--color-primary);">&#8592; Previous</button>
+    <h2 id="calendar-heading"></h2>
+    <button class="btn btn-outline" id="next-month" style="border-color:var(--color-primary);color:var(--color-primary);">Next &#8594;</button>
+  </div>
+
+  <div class="calendar-grid">
+    <div class="calendar-weekdays">
+      <div>Mon</div>
+      <div>Tue</div>
+      <div>Wed</div>
+      <div>Thu</div>
+      <div>Fri</div>
+      <div>Sat</div>
+      <div>Sun</div>
+    </div>
+    <div class="calendar-days" id="calendar-days"></div>
+  </div>
+
+  <section class="events-list">
+    <h2 class="section-title">Upcoming Events</h2>
+    <div id="events-list-container"></div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> Compassionate Circle &bull; <a href="feedback.html">Feedback</a> &bull; <a href="register.html">Register</a></p>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/calendar.js"></script>
+</body>
+</html>

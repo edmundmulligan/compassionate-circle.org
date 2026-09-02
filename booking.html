@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Session – Compassionate Circle</title>
+  <meta name="description" content="Book a one-to-one or group session with Compassionate Circle." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header>
+  <nav class="nav-container">
+    <a class="nav-logo" href="index.html">&#9675; Compassionate Circle</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="booking.html">Book a Session</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="form-card">
+    <h2>Book a Session</h2>
+    <p class="subtitle">Reserve your place in a one-to-one or group session with one of our facilitators.</p>
+
+    <div class="alert alert-success" id="booking-success" role="alert">
+      Your booking has been received! A confirmation email will be sent to you shortly.
+    </div>
+    <div class="alert alert-error" id="booking-error" role="alert">
+      Something went wrong. Please check the form and try again.
+    </div>
+
+    <form id="bookingForm" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="bk-first">First Name <span class="required">*</span></label>
+          <input type="text" id="bk-first" name="first_name" required placeholder="Jane" />
+        </div>
+        <div class="form-group">
+          <label for="bk-last">Last Name <span class="required">*</span></label>
+          <input type="text" id="bk-last" name="last_name" required placeholder="Smith" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="bk-email">Email Address <span class="required">*</span></label>
+          <input type="email" id="bk-email" name="email" required placeholder="jane@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="bk-phone">Phone Number</label>
+          <input type="tel" id="bk-phone" name="phone" placeholder="+44 7700 900000" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="bk-type">Session Type <span class="required">*</span></label>
+        <select id="bk-type" name="session_type" required>
+          <option value="">— Please select —</option>
+          <option value="individual">One-to-One Session (60 min)</option>
+          <option value="group">Group Circle Session (90 min)</option>
+          <option value="workshop">Workshop (half day)</option>
+          <option value="intro">Free Introductory Call (30 min)</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="bk-date">Preferred Date <span class="required">*</span></label>
+          <input type="date" id="bk-date" name="preferred_date" required />
+        </div>
+        <div class="form-group">
+          <label for="bk-time">Preferred Time</label>
+          <select id="bk-time" name="preferred_time">
+            <option value="">— Any time —</option>
+            <option value="morning">Morning (09:00–12:00)</option>
+            <option value="afternoon">Afternoon (12:00–17:00)</option>
+            <option value="evening">Evening (17:00–20:00)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="bk-facilitator">Preferred Facilitator</label>
+        <select id="bk-facilitator" name="facilitator">
+          <option value="">— No preference —</option>
+          <option value="sarah">Sarah Johnson</option>
+          <option value="michael">Michael Chen</option>
+          <option value="aisha">Aisha Patel</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="bk-notes">Additional Notes</label>
+        <textarea id="bk-notes" name="notes" placeholder="Anything you would like us to know beforehand…"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label><input type="checkbox" id="bk-agree" name="agree" required /> I agree to the <a href="#" style="color:var(--color-primary)">booking terms and conditions</a> <span class="required">*</span></label>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="btn btn-primary" id="booking-submit-btn">Confirm Booking</button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> Compassionate Circle &bull; <a href="feedback.html">Feedback</a> &bull; <a href="register.html">Register</a></p>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/booking.js"></script>
+</body>
+</html>

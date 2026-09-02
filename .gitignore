@@ -28,3 +28,6 @@ Homestead.json
 .env.production
 .phpactor.json
 auth.json
+
+# User-submitted registration data (contains hashed passwords; protect in production)
+data/registrations.json
