@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback – Compassionate Circle</title>
+  <meta name="description" content="Share your feedback with Compassionate Circle." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header>
+  <nav class="nav-container">
+    <a class="nav-logo" href="index.html">&#9675; Compassionate Circle</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="booking.html">Book a Session</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="form-card">
+    <h2>Share Your Feedback</h2>
+    <p class="subtitle">We value your thoughts. Please take a moment to let us know how we are doing.</p>
+
+    <div class="alert alert-success" id="feedback-success" role="alert">
+      Thank you for your feedback! We appreciate you taking the time to share your thoughts.
+    </div>
+    <div class="alert alert-error" id="feedback-error" role="alert">
+      Something went wrong. Please check the form and try again.
+    </div>
+
+    <form id="feedbackForm" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fb-name">Your Name <span class="required">*</span></label>
+          <input type="text" id="fb-name" name="name" required placeholder="Jane Smith" />
+        </div>
+        <div class="form-group">
+          <label for="fb-email">Email Address <span class="required">*</span></label>
+          <input type="email" id="fb-email" name="email" required placeholder="jane@example.com" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fb-type">Feedback Type</label>
+        <select id="fb-type" name="feedback_type">
+          <option value="">— Select —</option>
+          <option value="general">General Comment</option>
+          <option value="session">Session Feedback</option>
+          <option value="event">Event Feedback</option>
+          <option value="suggestion">Suggestion</option>
+          <option value="complaint">Concern / Complaint</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Overall Experience</label>
+        <div class="rating-stars" role="radiogroup" aria-label="Overall rating">
+          <input type="radio" id="star5" name="rating" value="5" />
+          <label for="star5" aria-label="5 stars">&#9733;</label>
+          <input type="radio" id="star4" name="rating" value="4" />
+          <label for="star4" aria-label="4 stars">&#9733;</label>
+          <input type="radio" id="star3" name="rating" value="3" />
+          <label for="star3" aria-label="3 stars">&#9733;</label>
+          <input type="radio" id="star2" name="rating" value="2" />
+          <label for="star2" aria-label="2 stars">&#9733;</label>
+          <input type="radio" id="star1" name="rating" value="1" />
+          <label for="star1" aria-label="1 star">&#9733;</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fb-message">Your Feedback <span class="required">*</span></label>
+        <textarea id="fb-message" name="message" required placeholder="Please share your experience or suggestions…"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Would you recommend us to others?</label>
+        <div class="checkbox-group">
+          <label><input type="radio" name="recommend" value="yes" /> Yes, definitely</label>
+          <label><input type="radio" name="recommend" value="maybe" /> Maybe</label>
+          <label><input type="radio" name="recommend" value="no" /> Not at this time</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label><input type="checkbox" name="contact_ok" value="yes" /> You may contact me regarding my feedback</label>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="btn btn-primary" id="feedback-submit-btn">Submit Feedback</button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> Compassionate Circle &bull; <a href="feedback.html">Feedback</a> &bull; <a href="register.html">Register</a></p>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/feedback.js"></script>
+</body>
+</html>
