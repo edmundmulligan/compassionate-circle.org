@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compassionate Circle</title>
+  <meta name="description" content="A welcoming community dedicated to compassion, connection, and support." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header>
+  <nav class="nav-container">
+    <a class="nav-logo" href="index.html">&#9675; Compassionate Circle</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="booking.html">Book a Session</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Welcome to Compassionate Circle</h1>
+  <p>A welcoming community dedicated to compassion, connection, and mutual support. Join us to grow, heal, and thrive together.</p>
+  <div class="hero-actions">
+    <a href="register.html" class="btn btn-primary">Join Us Today</a>
+    <a href="events.html" class="btn btn-outline">See Upcoming Events</a>
+  </div>
+</section>
+
+<main>
+  <h2 class="section-title">What We Offer</h2>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">&#128149;</div>
+      <h3>Compassion Circles</h3>
+      <p>Regular group sessions where members share experiences and support one another in a safe, confidential space.</p>
+      <a href="events.html" class="btn btn-primary">View Events</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#128172;</div>
+      <h3>One-to-One Sessions</h3>
+      <p>Book a personal session with one of our trained facilitators for tailored guidance and support.</p>
+      <a href="booking.html" class="btn btn-primary">Book Now</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#127793;</div>
+      <h3>Community &amp; Growth</h3>
+      <p>Workshops, meditation, mindfulness sessions, and skill-building events open to all members.</p>
+      <a href="register.html" class="btn btn-primary">Get Started</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#128075;</div>
+      <h3>Share Your Thoughts</h3>
+      <p>Your feedback helps us improve. Let us know how we are doing and what you would like to see more of.</p>
+      <a href="feedback.html" class="btn btn-primary">Give Feedback</a>
+    </div>
+  </div>
+
+  <h2 class="section-title">Our Mission</h2>
+  <div class="card">
+    <p>Compassionate Circle was founded on the belief that everyone deserves a place to feel heard, valued, and supported. We bring together people from all walks of life to build resilience, practise empathy, and create lasting community bonds. Whether you are navigating a difficult period or simply seeking meaningful connection, you belong here.</p>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> Compassionate Circle &bull; <a href="feedback.html">Feedback</a> &bull; <a href="register.html">Register</a></p>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

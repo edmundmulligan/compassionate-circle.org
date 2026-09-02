@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register – Compassionate Circle</title>
+  <meta name="description" content="Create your Compassionate Circle account and join our community." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header>
+  <nav class="nav-container">
+    <a class="nav-logo" href="index.html">&#9675; Compassionate Circle</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="booking.html">Book a Session</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="form-card">
+    <h2>Create Your Account</h2>
+    <p class="subtitle">Join Compassionate Circle and become part of our supportive community.</p>
+
+    <div class="alert alert-success" id="reg-success" role="alert">
+      Welcome aboard! Your account has been created. Please check your email to verify your address.
+    </div>
+    <div class="alert alert-error" id="reg-error" role="alert">
+      Please correct the errors below and try again.
+    </div>
+
+    <form id="registerForm" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="reg-first">First Name <span class="required">*</span></label>
+          <input type="text" id="reg-first" name="first_name" required placeholder="Jane" autocomplete="given-name" />
+        </div>
+        <div class="form-group">
+          <label for="reg-last">Last Name <span class="required">*</span></label>
+          <input type="text" id="reg-last" name="last_name" required placeholder="Smith" autocomplete="family-name" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="reg-email">Email Address <span class="required">*</span></label>
+        <input type="email" id="reg-email" name="email" required placeholder="jane@example.com" autocomplete="email" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="reg-password">Password <span class="required">*</span></label>
+          <input type="password" id="reg-password" name="password" required placeholder="Minimum 8 characters" autocomplete="new-password" />
+          <small id="pw-hint" style="color:var(--color-muted);font-size:0.82rem;"></small>
+        </div>
+        <div class="form-group">
+          <label for="reg-password2">Confirm Password <span class="required">*</span></label>
+          <input type="password" id="reg-password2" name="password_confirm" required placeholder="Repeat your password" autocomplete="new-password" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="reg-dob">Date of Birth</label>
+        <input type="date" id="reg-dob" name="dob" autocomplete="bday" />
+      </div>
+
+      <div class="form-group">
+        <label for="reg-phone">Phone Number</label>
+        <input type="tel" id="reg-phone" name="phone" placeholder="+44 7700 900000" autocomplete="tel" />
+      </div>
+
+      <div class="form-group">
+        <label>Interests (select all that apply)</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="interests" value="circles" /> Compassion Circles</label>
+          <label><input type="checkbox" name="interests" value="meditation" /> Meditation</label>
+          <label><input type="checkbox" name="interests" value="mindfulness" /> Mindfulness</label>
+          <label><input type="checkbox" name="interests" value="workshops" /> Workshops</label>
+          <label><input type="checkbox" name="interests" value="one-to-one" /> One-to-One Sessions</label>
+          <label><input type="checkbox" name="interests" value="volunteering" /> Volunteering</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="reg-hear">How did you hear about us?</label>
+        <select id="reg-hear" name="referral">
+          <option value="">— Select —</option>
+          <option value="friend">Friend or family</option>
+          <option value="social">Social media</option>
+          <option value="search">Internet search</option>
+          <option value="event">Community event</option>
+          <option value="gp">Healthcare professional</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label><input type="checkbox" id="reg-terms" name="terms" required /> I agree to the <a href="#" style="color:var(--color-primary)">Terms of Service</a> and <a href="#" style="color:var(--color-primary)">Privacy Policy</a> <span class="required">*</span></label>
+      </div>
+
+      <div class="form-group">
+        <label><input type="checkbox" name="newsletter" value="yes" /> Subscribe to our newsletter for news and events</label>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="btn btn-primary" id="reg-submit-btn">Create Account</button>
+      </div>
+
+      <p style="margin-top:1rem;font-size:0.9rem;color:var(--color-muted);text-align:center;">Already have an account? <a href="#" style="color:var(--color-primary)">Sign in here</a></p>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> Compassionate Circle &bull; <a href="feedback.html">Feedback</a> &bull; <a href="register.html">Register</a></p>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>
