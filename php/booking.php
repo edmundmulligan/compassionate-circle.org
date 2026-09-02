@@ -46,6 +46,8 @@ if ($first_name === '') { $errors[] = 'First name is required.'; }
 if ($last_name  === '') { $errors[] = 'Last name is required.'; }
 if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors[] = 'A valid email address is required.';
+} elseif (preg_match('/[\r\n]/', $email)) {
+    $errors[] = 'Invalid email address.';
 }
 if (!in_array($session_type, $valid_sessions, true)) {
     $errors[] = 'Please select a valid session type.';

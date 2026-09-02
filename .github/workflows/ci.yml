@@ -10,6 +10,8 @@ jobs:
   html-validate:
     name: Validate HTML
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
 
@@ -27,6 +29,8 @@ jobs:
   php-lint:
     name: Lint PHP
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
 
@@ -42,6 +46,8 @@ jobs:
   js-lint:
     name: Lint JavaScript
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
 

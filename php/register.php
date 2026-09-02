@@ -51,6 +51,8 @@ if ($last_name  === '') { $errors[] = 'Last name is required.'; }
 
 if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors[] = 'A valid email address is required.';
+} elseif (preg_match('/[\r\n]/', $email)) {
+    $errors[] = 'Invalid email address.';
 }
 
 if (strlen($password) < 8) {
@@ -61,7 +63,7 @@ if ($password !== $password2) {
     $errors[] = 'Passwords do not match.';
 }
 
-if ($terms !== 'on' && $terms !== '1' && $terms !== 'yes') {
+if ($terms !== 'on') {
     $errors[] = 'You must agree to the Terms of Service.';
 }
 
@@ -79,17 +81,23 @@ if (!is_dir($data_dir)) {
     mkdir($data_dir, 0750, true);
 }
 
-$registrations = [];
-if (file_exists($data_file)) {
-    $json = file_get_contents($data_file);
-    if ($json !== false) {
-        $registrations = json_decode($json, true) ?? [];
-    }
+/* Use exclusive file locking to prevent race conditions */
+$fh = fopen($data_file, 'c+');
+if (!$fh || !flock($fh, LOCK_EX)) {
+    error_log('Could not lock registrations file.');
+    http_response_code(500);
+    echo json_encode(['success' => false, 'message' => 'Registration could not be saved. Please try again later.']);
+    exit;
 }
+
+$json = stream_get_contents($fh);
+$registrations = ($json !== false && $json !== '') ? (json_decode($json, true) ?? []) : [];
 
 /* Check for duplicate email */
 foreach ($registrations as $reg) {
     if (isset($reg['email']) && strtolower($reg['email']) === strtolower($email)) {
+        flock($fh, LOCK_UN);
+        fclose($fh);
         http_response_code(409);
         echo json_encode(['success' => false, 'message' => 'An account with that email address already exists.']);
         exit;
@@ -111,7 +119,12 @@ $registrations[] = [
     'created_at' => date('c'),
 ];
 
-$written = file_put_contents($data_file, json_encode($registrations, JSON_PRETTY_PRINT));
+ftruncate($fh, 0);
+rewind($fh);
+$written = fwrite($fh, json_encode($registrations, JSON_PRETTY_PRINT));
+flock($fh, LOCK_UN);
+fclose($fh);
+
 if ($written === false) {
     error_log('Could not write registrations file.');
     http_response_code(500);

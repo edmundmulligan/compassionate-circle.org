@@ -9,6 +9,8 @@ jobs:
   deploy:
     name: Deploy via FTP
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - uses: actions/checkout@v4

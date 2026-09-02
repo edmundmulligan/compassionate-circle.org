@@ -46,6 +46,8 @@ if ($name === '') {
 
 if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors[] = 'A valid email address is required.';
+} elseif (preg_match('/[\r\n]/', $email)) {
+    $errors[] = 'Invalid email address.';
 }
 
 if ($message === '') {

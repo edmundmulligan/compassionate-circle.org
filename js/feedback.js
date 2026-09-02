@@ -107,10 +107,7 @@
         }
       })
       .catch(function () {
-        /* If PHP backend is not available (e.g. static hosting), still show success
-           for demonstration purposes. Remove this catch body in production. */
-        showAlert(successEl, true);
-        form.reset();
+        showAlert(errorEl, true);
       })
       .finally(function () {
         submitBtn.disabled = false;

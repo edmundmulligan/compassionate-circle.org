@@ -116,9 +116,7 @@
         }
       })
       .catch(function () {
-        /* Graceful fallback for static hosting */
-        showAlert(successEl, true);
-        form.reset();
+        showAlert(errorEl, true);
         if (pwHint) pwHint.textContent = '';
       })
       .finally(function () {
